@@ -175,10 +175,10 @@ def getJSONdata():
 						patch=d["patch"]
 					vlhref=vl["_links"]["ref"]
 				vulns[vulncount]={'title' : title, 'overview' : overview, 'language' : language, 'cve' : cve, 'cvssscore' : cvssscore, 'severity' : severity, 'href' : href, 'updatetoversion' : updatetoversion, 'versionrange' : versionrange, 'fixtext' : fixtext, 'patch' : patch, 'vlhref' : vlhref }
-				if updatetoversion == " ":
-					fix = ""
+				if updatetoversion is None:
+					fix = " "
 				else:
-					fix = "Please update to version " + str(updatetoversion) + ". "
+					fix = "Please update to version " + str(updatetoversion) + "."
 				vulnlist.append([str(cve), str(severity), str(cvssscore), str(title), str(overview), str(fix)])
 				vulncount = vulncount + 1
 			for l in rec['libraries']:
@@ -347,7 +347,7 @@ def writeHTML():
 		        columns: ["CVE", "SEVERITY", "CVSS", "TITLE", "INSTRUCTIONS"],
 		        search: true,
 		        sort: true,
-		        pagination: true,
+		        pagination: false,
 		        data: ["""+str(getVulnTable())+"""]
 		      }).render(document.getElementById("gridjs"));
 		    </script>
