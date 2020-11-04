@@ -268,7 +268,7 @@ def libssummary(x):
 
 
 def writeHTML():
-	f = open("sca-report.html", "r+")
+	f = open("sca-report.html", "w")
 	html1 = """<html>
 		<head>
 			<script src="https://unpkg.com/gridjs/dist/gridjs.production.min.js"></script>
