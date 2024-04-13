@@ -1,7 +1,4 @@
 import json
-
-global vsum
-global lsum
 vulns={}
 vsum={}
 lsum={}
